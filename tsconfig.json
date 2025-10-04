@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "ignoreDeprecations": "6.0",
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "paths": {
+            "#configs/*": ["src/configs/*"],
+            "#controllers/*": ["src/controllers/*"],
+            "#middleware/*": ["src/middleware/*"],
+            "#models/*": ["src/models/*"],
+            "#routes/*": ["src/routes/*"],
+            "#services/*": ["src/services/*"],
+            "#utils/*": ["src/utils/*"],
+            "#validations/*": ["src/validations/*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+}
