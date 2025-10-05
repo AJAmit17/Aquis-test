@@ -47,6 +47,11 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
             return res.status(409).json({ error: 'Email already exist' });
         }
 
+        if (e instanceof Error && (e.message === 'DB_SELECT_FAILED' || e.message === 'DB_INSERT_FAILED')) {
+            // Do not leak DB internals to client
+            return res.status(500).json({ error: 'Database error, please try again later' });
+        }
+
         next(e);
     }
 };

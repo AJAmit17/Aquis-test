@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import express from 'express';
 import logger from '#configs/logger';
 import helmet from 'helmet';

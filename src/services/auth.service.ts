@@ -54,27 +54,41 @@ export const comparePassword = async (password: any, hashedPassword: string) => 
 
 export const createUser = async ({ name, email, password, role = 'user' }: CreateUserInput) => {
     try {
-        const existingUser = await db
-            .select()
-            .from(users)
-            .where(eq(users.email, email))
-            .limit(1);
+        let existingUser;
+        try {
+            existingUser = await db
+                .select()
+                .from(users)
+                .where(eq(users.email, email))
+                .limit(1);
+        } catch (dbErr) {
+            logger.error('Database select error in createUser', dbErr);
+            throw new Error('DB_SELECT_FAILED');
+        }
 
         if (existingUser.length > 0)
             throw new Error('User with this email already exists');
 
         const password_hash = await hashPassword(password);
 
-        const [newUser] = await db
-            .insert(users)
-            .values({ name, email, password: password_hash, role })
-            .returning({
-                id: users.id,
-                name: users.name,
-                email: users.email,
-                role: users.role,
-                created_at: users.created_at,
-            });
+        let newUser;
+        try {
+            const res = await db
+                .insert(users)
+                .values({ name, email, password: password_hash, role })
+                .returning({
+                    id: users.id,
+                    name: users.name,
+                    email: users.email,
+                    role: users.role,
+                    created_at: users.created_at,
+                });
+            newUser = Array.isArray(res) ? res[0] : res;
+        } catch (dbErr) {
+            logger.error('Database insert error in createUser', dbErr);
+            // If it's a unique constraint error coming from the DB, map to a user-friendly message
+            throw new Error('DB_INSERT_FAILED');
+        }
 
         logger.info(`User ${newUser.email} created successfully`);
         return newUser;
@@ -86,11 +100,18 @@ export const createUser = async ({ name, email, password, role = 'user' }: Creat
 
 export const authenticateUser = async ({ email, password }: AuthenticateUserInput) => {
     try {
-        const [existingUser] = await db
-            .select()
-            .from(users)
-            .where(eq(users.email, email))
-            .limit(1);
+        let existingUser;
+        try {
+            const rows = await db
+                .select()
+                .from(users)
+                .where(eq(users.email, email))
+                .limit(1);
+            existingUser = Array.isArray(rows) ? rows[0] : rows;
+        } catch (dbErr) {
+            logger.error('Database select error in authenticateUser', dbErr);
+            throw new Error('DB_SELECT_FAILED');
+        }
 
         if (!existingUser) {
             throw new Error('User not found');

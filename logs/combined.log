@@ -4,3 +4,76 @@
 {"level":"info","message":"::1 - - [04/Oct/2025:16:17:37 +0000] \"GET /api/ HTTP/1.1\" 200 42 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
 {"level":"info","message":"::1 - - [04/Oct/2025:16:17:44 +0000] \"GET /api/auth/sign-in HTTP/1.1\" 404 27 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
 {"level":"info","message":"::1 - - [04/Oct/2025:16:18:05 +0000] \"GET /api/auth/sign-up HTTP/1.1\" 404 27 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"Hello from Acquisitions!","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [04/Oct/2025:16:19:39 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [04/Oct/2025:16:19:44 +0000] \"GET /api/users HTTP/1.1\" 401 72 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
+{"ip":"::1","level":"warn","message":"Bot request blocked","path":"/api/auth/sign-up","service":"acquisitions-api","userAgent":"PostmanRuntime/7.46.1"}
+{"level":"info","message":"::1 - - [05/Oct/2025:05:56:21 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 403 68 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"error","message":"Error creating the user: Error: Failed query: select \"id\", \"name\", \"email\", \"password\", \"role\", \"created_at\", \"updated_at\" from \"users\" where \"users\".\"email\" = $1 limit $2\nparams: test@yahoo.com,1","service":"acquisitions-api"}
+{"cause":{"name":"NeonDbError","sourceError":{}},"level":"error","message":"Signup error Failed query: select \"id\", \"name\", \"email\", \"password\", \"role\", \"created_at\", \"updated_at\" from \"users\" where \"users\".\"email\" = $1 limit $2\nparams: test@yahoo.com,1","params":["test@yahoo.com",1],"query":"select \"id\", \"name\", \"email\", \"password\", \"role\", \"created_at\", \"updated_at\" from \"users\" where \"users\".\"email\" = $1 limit $2","service":"acquisitions-api","stack":"Error: Failed query: select \"id\", \"name\", \"email\", \"password\", \"role\", \"created_at\", \"updated_at\" from \"users\" where \"users\".\"email\" = $1 limit $2\nparams: test@yahoo.com,1\n    at NeonHttpPreparedQuery.queryWithCache (C:\\Users\\amitj\\OneDrive\\Desktop\\DEVOPS\\Aqui-test\\node_modules\\src\\pg-core\\session.ts:73:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async NeonHttpPreparedQuery.execute (C:\\Users\\amitj\\OneDrive\\Desktop\\DEVOPS\\Aqui-test\\node_modules\\src\\neon-http\\session.ts:83:18)\n    at async createUser (C:\\Users\\amitj\\OneDrive\\Desktop\\DEVOPS\\Aqui-test\\src\\services\\auth.service.ts:57:30)\n    at async signup (C:\\Users\\amitj\\OneDrive\\Desktop\\DEVOPS\\Aqui-test\\src\\controllers\\auth.controller.ts:23:22)"}
+{"level":"info","message":"::1 - - [05/Oct/2025:05:58:38 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 500 1046 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User test@yahoo.com created successfully","service":"acquisitions-api"}
+{"level":"info","message":"User registered successfully: test@yahoo.com","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:06:30 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 99 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User test@example.com created successfully","service":"acquisitions-api"}
+{"level":"info","message":"User registered successfully: test@example.com","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:11:48 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 105 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User test@example.com authenticated successfully","service":"acquisitions-api"}
+{"level":"info","message":"User signed in successfully: test@example.com","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:13:41 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 117 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"ip":"::1","level":"warn","message":"Bot request blocked","path":"/api/auth/sign-up","service":"acquisitions-api","userAgent":"curl/8.14.1"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:20:42 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 403 68 \"-\" \"curl/8.14.1\"","service":"acquisitions-api"}
+{"level":"info","message":"Hello from Acquisitions!","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:27:22 +0000] \"GET / HTTP/1.1\" 200 22 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:27:34 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:27:45 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User john.doe@example.com created successfully","service":"acquisitions-api"}
+{"level":"info","message":"User registered successfully: john.doe@example.com","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:28:08 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 108 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User admin@example.com created successfully","service":"acquisitions-api"}
+{"level":"info","message":"User registered successfully: admin@example.com","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:28:24 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 108 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User john.doe@example.com authenticated successfully","service":"acquisitions-api"}
+{"level":"info","message":"User signed in successfully: john.doe@example.com","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:28:37 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 120 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User signed out successfully","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:29:09 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User admin@example.com authenticated successfully","service":"acquisitions-api"}
+{"level":"info","message":"User signed in successfully: admin@example.com","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:29:31 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 120 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: admin@example.com (admin)","service":"acquisitions-api"}
+{"level":"info","message":"Getting users...","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:29:52 +0000] \"GET /api/users HTTP/1.1\" 200 366 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: admin@example.com (admin)","service":"acquisitions-api"}
+{"level":"info","message":"Getting user by id: 1","service":"acquisitions-api"}
+{"level":"error","message":"Error getting user by id 1: User not found","service":"acquisitions-api","stack":"Error: User not found\n    at getUserById (C:\\Users\\amitj\\OneDrive\\Desktop\\DEVOPS\\Aqui-test\\src\\services\\users.service.ts:41:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async fetchUserById (C:\\Users\\amitj\\OneDrive\\Desktop\\DEVOPS\\Aqui-test\\src\\controllers\\user.controller.ts:47:22)"}
+{"level":"error","message":"Error fetching user by id: User not found","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:30:13 +0000] \"GET /api/users/1 HTTP/1.1\" 404 26 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: admin@example.com (admin)","service":"acquisitions-api"}
+{"level":"info","message":"Getting user by id: 3","service":"acquisitions-api"}
+{"level":"info","message":"User john.doe@example.com retrieved successfully","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:30:18 +0000] \"GET /api/users/3 HTTP/1.1\" 200 200 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: admin@example.com (admin)","service":"acquisitions-api"}
+{"level":"info","message":"Updating user: 4","service":"acquisitions-api"}
+{"level":"info","message":"User admin@example.com updated successfully","service":"acquisitions-api"}
+{"level":"info","message":"User admin@example.com updated successfully","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:31:18 +0000] \"PUT /api/users/4 HTTP/1.1\" 200 200 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: admin@example.com (admin)","service":"acquisitions-api"}
+{"level":"info","message":"Updating user: 4","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:32:37 +0000] \"PUT /api/users/4 HTTP/1.1\" 400 88 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: admin@example.com (admin)","service":"acquisitions-api"}
+{"level":"info","message":"Updating user: 3","service":"acquisitions-api"}
+{"level":"info","message":"User john.doe@example.com updated successfully","service":"acquisitions-api"}
+{"level":"info","message":"User john.doe@example.com updated successfully","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:33:28 +0000] \"PUT /api/users/3 HTTP/1.1\" 200 199 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: admin@example.com (admin)","service":"acquisitions-api"}
+{"level":"info","message":"Updating user: 3","service":"acquisitions-api"}
+{"level":"info","message":"User john.doe@example.com updated successfully","service":"acquisitions-api"}
+{"level":"info","message":"User john.doe@example.com updated successfully","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:33:37 +0000] \"PUT /api/users/3 HTTP/1.1\" 200 198 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User john.doe@example.com authenticated successfully","service":"acquisitions-api"}
+{"level":"info","message":"User signed in successfully: john.doe@example.com","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:34:10 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 120 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: john.doe@example.com (user)","service":"acquisitions-api"}
+{"level":"info","message":"Updating user: 3","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:06:34:15 +0000] \"PUT /api/users/3 HTTP/1.1\" 403 79 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
