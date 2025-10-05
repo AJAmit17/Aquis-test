@@ -15,7 +15,7 @@
         "db:studio": "drizzle-kit studio",
         "dev:docker": "sh ./scripts/dev.sh",
         "prod:docker": "sh ./scripts/prod.sh",
-    "test": "jest"
+        "test": "jest"
     },
     "imports": {
         "#src/*": "./src/*",
