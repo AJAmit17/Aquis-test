@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const formatValidationError = (errors: { issues: any[]; }) => {
+export const formatValidationError = (errors: { issues: any[] }) => {
     if (!errors || !errors.issues) return 'Validation failed';
 
     if (Array.isArray(errors.issues))

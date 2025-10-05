@@ -101,3 +101,23 @@
 {"level":"error","message":"Error creating the user: Error: DB_SELECT_FAILED","service":"acquisitions-api"}
 {"level":"error","message":"Signup error DB_SELECT_FAILED","service":"acquisitions-api","stack":"Error: DB_SELECT_FAILED\n    at createUser (/app/src/services/auth.service.ts:66:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at signup (/app/src/controllers/auth.controller.ts:23:22)"}
 {"level":"info","message":"::ffff:172.18.0.1 - - [05/Oct/2025:07:11:28 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 500 50 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:07:52:27 +0000] \"GET /health HTTP/1.1\" 500 91 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:07:52:27 +0000] \"GET /api HTTP/1.1\" 500 91 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:07:52:27 +0000] \"GET /nonexsistent HTTP/1.1\" 500 91 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:07:55:36 +0000] \"GET /health HTTP/1.1\" 500 91 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:07:55:36 +0000] \"GET /api HTTP/1.1\" 500 91 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:07:55:36 +0000] \"GET /nonexsistent HTTP/1.1\" 500 91 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"Hello from Acquisitions!","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:07:57:32 +0000] \"GET / HTTP/1.1\" 200 22 \"-\" \"PostmanRuntime/7.48.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:07:57:37 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"PostmanRuntime/7.48.0\"","service":"acquisitions-api"}
+{"level":"info","message":"User signed out successfully","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:07:57:49 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.48.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:22:34 +0000] \"GET /health HTTP/1.1\" 200 73 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:22:34 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:22:34 +0000] \"GET /nonexsistent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:23:35 +0000] \"GET /health HTTP/1.1\" 200 73 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:23:35 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:23:35 +0000] \"GET /nonexsistent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:25:32 +0000] \"GET /health HTTP/1.1\" 200 73 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:25:32 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [05/Oct/2025:08:25:32 +0000] \"GET /nonexsistent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisitions-api"}

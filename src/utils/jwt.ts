@@ -2,8 +2,7 @@
 import jwt from 'jsonwebtoken';
 import logger from '#configs/logger';
 
-const JWT_SECRET =
-    process.env.JWT_SECRET || 'aqui-test-secret';
+const JWT_SECRET = process.env.JWT_SECRET || 'aqui-test-secret';
 const JWT_EXPIRES_IN = '1d';
 
 export const jwttoken = {

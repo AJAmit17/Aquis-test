@@ -26,7 +26,7 @@ echo "   - Running in optimized production mode"
 echo ""
 
 # Start production environment
-docker compose -f docker-compose.prod.yml up --build -d
+docker compose -f docker-compose.prod.yaml up --build -d
 
 # Wait for DB to be ready (basic health check)
 echo "⏳ Waiting for Neon Local to be ready..."

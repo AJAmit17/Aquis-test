@@ -12,7 +12,24 @@ import {
 } from '#validations/users.validation.js';
 import { formatValidationError } from '#utils/format.js';
 
-export const fetchAllUsers = async (req: any, res: { json: (arg0: { message: string; users: { id: number; email: string; name: string; role: string; created_at: Date; updated_at: Date; }[]; count: number; }) => void; }, next: (arg0: any) => void) => {
+export const fetchAllUsers = async (
+    req: any,
+    res: {
+        json: (arg0: {
+            message: string;
+            users: {
+                id: number;
+                email: string;
+                name: string;
+                role: string;
+                created_at: Date;
+                updated_at: Date;
+            }[];
+            count: number;
+        }) => void;
+    },
+    next: (arg0: any) => void
+) => {
     try {
         logger.info('Getting users...');
 
@@ -29,7 +46,31 @@ export const fetchAllUsers = async (req: any, res: { json: (arg0: { message: str
     }
 };
 
-export const fetchUserById = async (req: { params: { id: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string; details?: string; }): any; new(): any; }; }; json: (arg0: { message: string; user: { id: number; email: string; name: string; role: string; created_at: Date; updated_at: Date; }; }) => void; }, next: (arg0: any) => void) => {
+export const fetchUserById = async (
+    req: { params: { id: any } },
+    res: {
+        status: (arg0: number) => {
+            (): any;
+            new (): any;
+            json: {
+                (arg0: { error: string; details?: string }): any;
+                new (): any;
+            };
+        };
+        json: (arg0: {
+            message: string;
+            user: {
+                id: number;
+                email: string;
+                name: string;
+                role: string;
+                created_at: Date;
+                updated_at: Date;
+            };
+        }) => void;
+    },
+    next: (arg0: any) => void
+) => {
     try {
         logger.info(`Getting user by id: ${req.params.id}`);
 
@@ -62,12 +103,46 @@ export const fetchUserById = async (req: { params: { id: any; }; }, res: { statu
     }
 };
 
-export const updateUserById = async (req: { params: { id: any; }; body: unknown; user: { role: string; id: number; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string; details?: string; message?: string; }): any; new(): any; }; }; json: (arg0: { message: string; user: { id: number; email: string; name: string; role: string; created_at: Date; updated_at: Date; }; }) => void; }, next: (arg0: any) => void) => {
+export const updateUserById = async (
+    req: {
+        params: { id: any };
+        body: unknown;
+        user: { role: string; id: number };
+    },
+    res: {
+        status: (arg0: number) => {
+            (): any;
+            new (): any;
+            json: {
+                (arg0: {
+                    error: string;
+                    details?: string;
+                    message?: string;
+                }): any;
+                new (): any;
+            };
+        };
+        json: (arg0: {
+            message: string;
+            user: {
+                id: number;
+                email: string;
+                name: string;
+                role: string;
+                created_at: Date;
+                updated_at: Date;
+            };
+        }) => void;
+    },
+    next: (arg0: any) => void
+) => {
     try {
         logger.info(`Updating user: ${req.params.id}`);
 
         // Validate the user ID parameter
-        const idValidationResult = userIdSchema.safeParse({ id: req.params.id });
+        const idValidationResult = userIdSchema.safeParse({
+            id: req.params.id,
+        });
 
         if (!idValidationResult.success) {
             return res.status(400).json({
@@ -140,7 +215,28 @@ export const updateUserById = async (req: { params: { id: any; }; body: unknown;
     }
 };
 
-export const deleteUserById = async (req: { params: { id: any; }; user: { role: string; id: number; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string; details?: string; message?: string; }): any; new(): any; }; }; json: (arg0: { message: string; user: { id: number; email: string; name: string; role: string; }; }) => void; }, next: (arg0: any) => void) => {
+export const deleteUserById = async (
+    req: { params: { id: any }; user: { role: string; id: number } },
+    res: {
+        status: (arg0: number) => {
+            (): any;
+            new (): any;
+            json: {
+                (arg0: {
+                    error: string;
+                    details?: string;
+                    message?: string;
+                }): any;
+                new (): any;
+            };
+        };
+        json: (arg0: {
+            message: string;
+            user: { id: number; email: string; name: string; role: string };
+        }) => void;
+    },
+    next: (arg0: any) => void
+) => {
     try {
         logger.info(`Deleting user: ${req.params.id}`);
 

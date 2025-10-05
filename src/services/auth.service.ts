@@ -43,7 +43,10 @@ export const hashPassword = async (password: string): Promise<string> => {
     }
 };
 
-export const comparePassword = async (password: any, hashedPassword: string) => {
+export const comparePassword = async (
+    password: any,
+    hashedPassword: string
+) => {
     try {
         return await bcrypt.compare(password, hashedPassword);
     } catch (e) {
@@ -52,7 +55,12 @@ export const comparePassword = async (password: any, hashedPassword: string) => 
     }
 };
 
-export const createUser = async ({ name, email, password, role = 'user' }: CreateUserInput) => {
+export const createUser = async ({
+    name,
+    email,
+    password,
+    role = 'user',
+}: CreateUserInput) => {
     try {
         let existingUser;
         try {
@@ -98,7 +106,10 @@ export const createUser = async ({ name, email, password, role = 'user' }: Creat
     }
 };
 
-export const authenticateUser = async ({ email, password }: AuthenticateUserInput) => {
+export const authenticateUser = async ({
+    email,
+    password,
+}: AuthenticateUserInput) => {
     try {
         let existingUser;
         try {

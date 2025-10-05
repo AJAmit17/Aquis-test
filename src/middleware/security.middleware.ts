@@ -3,7 +3,7 @@ import aj from '#configs/arcjet';
 import logger from '#configs/logger';
 import { slidingWindow } from '@arcjet/node';
 
-const securityMiddleware = async (req :any, res :any, next :any) => {
+const securityMiddleware = async (req: any, res: any, next: any) => {
     try {
         const role = req.user?.role || 'guest';
 
@@ -38,12 +38,10 @@ const securityMiddleware = async (req :any, res :any, next :any) => {
                 path: req.path,
             });
 
-            return res
-                .status(403)
-                .json({
-                    error: 'Forbidden',
-                    message: 'Automated requests are not allowed',
-                });
+            return res.status(403).json({
+                error: 'Forbidden',
+                message: 'Automated requests are not allowed',
+            });
         }
 
         if (decision.isDenied() && decision.reason.isShield()) {
@@ -54,12 +52,10 @@ const securityMiddleware = async (req :any, res :any, next :any) => {
                 method: req.method,
             });
 
-            return res
-                .status(403)
-                .json({
-                    error: 'Forbidden',
-                    message: 'Request blocked by security policy',
-                });
+            return res.status(403).json({
+                error: 'Forbidden',
+                message: 'Request blocked by security policy',
+            });
         }
 
         if (decision.isDenied() && decision.reason.isRateLimit()) {
@@ -77,12 +73,10 @@ const securityMiddleware = async (req :any, res :any, next :any) => {
         next();
     } catch (e) {
         console.error('Arcjet middleware error:', e);
-        res
-            .status(500)
-            .json({
-                errro: 'Internal server error',
-                message: 'Something went wrong with security middleware',
-            });
+        res.status(500).json({
+            errro: 'Internal server error',
+            message: 'Something went wrong with security middleware',
+        });
     }
 };
 export default securityMiddleware;

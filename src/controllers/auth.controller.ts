@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response, NextFunction } from 'express';
 import logger from '#configs/logger';
-import { signupSchema, signInSchema } from '#validations/auth.validation.js';
+import { signupSchema, signInSchema } from '#validations/auth.validation';
 import { formatValidationError } from '#utils/format.js';
-import { createUser, authenticateUser } from '#services/auth.service.js';
+import { createUser, authenticateUser } from '#services/auth.service';
 import { jwttoken } from '#utils/jwt.js';
 import { cookies } from '#utils/cookies.js';
 
-export const signup = async (req: Request, res: Response, next: NextFunction) => {
+export const signup = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     try {
         const validationResult = signupSchema.safeParse(req.body);
 
@@ -43,19 +47,32 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
     } catch (e) {
         logger.error('Signup error', e);
 
-        if (e instanceof Error && e.message === 'User with this email already exists') {
+        if (
+            e instanceof Error &&
+            e.message === 'User with this email already exists'
+        ) {
             return res.status(409).json({ error: 'Email already exist' });
         }
 
-        if (e instanceof Error && (e.message === 'DB_SELECT_FAILED' || e.message === 'DB_INSERT_FAILED')) {
+        if (
+            e instanceof Error &&
+            (e.message === 'DB_SELECT_FAILED' ||
+                e.message === 'DB_INSERT_FAILED')
+        ) {
             // Do not leak DB internals to client
-            return res.status(500).json({ error: 'Database error, please try again later' });
+            return res
+                .status(500)
+                .json({ error: 'Database error, please try again later' });
         }
 
         next(e);
     }
 };
-export const signIn = async (req: Request, res: Response, next: NextFunction) => {
+export const signIn = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     try {
         const validationResult = signInSchema.safeParse(req.body);
 
@@ -91,14 +108,21 @@ export const signIn = async (req: Request, res: Response, next: NextFunction) =>
     } catch (e) {
         logger.error('Sign in error', e);
 
-        if (e instanceof Error && (e.message === 'User not found' || e.message === 'Invalid password')) {
+        if (
+            e instanceof Error &&
+            (e.message === 'User not found' || e.message === 'Invalid password')
+        ) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
         next(e);
     }
 };
-export const signOut = async (req: Request, res: Response, next: NextFunction) => {
+export const signOut = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     try {
         cookies.clear(res as any, 'token');
 

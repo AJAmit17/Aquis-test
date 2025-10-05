@@ -13,7 +13,11 @@ interface AuthenticatedRequest extends Request {
     user?: AuthenticatedUser;
 }
 
-export const authenticateToken = (req: AuthenticatedRequest, res: Response, next: NextFunction): Response | void => {
+export const authenticateToken = (
+    req: AuthenticatedRequest,
+    res: Response,
+    next: NextFunction
+): Response | void => {
     try {
         const token = req.cookies.token;
 
@@ -47,7 +51,20 @@ export const authenticateToken = (req: AuthenticatedRequest, res: Response, next
 };
 
 export const requireRole = (allowedRoles: any[]) => {
-    return (req: { user: { role: any; email: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string; message: string; }): any; new(): any; }; }; }, next: () => void) => {
+    return (
+        req: { user: { role: any; email: any } },
+        res: {
+            status: (arg0: number) => {
+                (): any;
+                new (): any;
+                json: {
+                    (arg0: { error: string; message: string }): any;
+                    new (): any;
+                };
+            };
+        },
+        next: () => void
+    ) => {
         try {
             if (!req.user) {
                 return res.status(401).json({
